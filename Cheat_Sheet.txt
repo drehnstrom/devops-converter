@@ -1,38 +1,30 @@
-# This installs all the libraries listed in the requirements.txt file into the lib folder.
-# Required for App Eniung Upload.
-pip install -t lib -r requirements.txt
+# This installs prerequisites.
+sudo pip3 install -r requirements.txt
 
 
 # git commands
 git add --all
-
-git commit -a -m "Initial Commit Flask App"
-
+git commit -a -m "Initial Commit"
 git push origin master
-
-# To push changes to GitHub
-git push github master
 
 
 # App Engine Commands
 gcloud app create --region=us-central
-
 gcloud app deploy --version=one --no-promote
 
 
-
 # GCP Container Builder to build Docker image
-gcloud container builds submit --tag gcr.io/dev-ops-demo/converter-web-site .
+gcloud container builds submit --tag gcr.io/doug-rehnstrom/converter:v1.0 .
 
 # Pull the container for the GCP Container Registry
-gcloud docker -- pull gcr.io/dev-ops-demo/converter-web-site:latest
+gcloud docker -- pull gcr.io/doug-rehnstrom/converter:v1.0
 
 # Run Docker image on local machine 
-docker run -d -p 80:80 gcr.io/dev-ops-demo/converter-web-site:latest
+docker run -d -p 80:80 gcr.io/doug-rehnstrom/converter:v1.0
 
 
 # Create a cluster in drehnstrom-1171 project - uses all the defaults
-gcloud container clusters create converter-cluster --zone "us-central1-a"  --project=<project id here>
+gcloud container clusters create converter-cluster --zone "us-central1-a"  --project=doug-rehnstrom
 
 #  Get authorization to the Cluster
 gcloud container clusters get-credentials converter-cluster --zone "us-central1-a"
@@ -52,8 +44,6 @@ kubectl delete -f gke-config.yaml
 # Delete the Cluster
 gcloud container clusters delete converter-cluster --zone "us-central1-a"
 
-
-....
 
 
 
