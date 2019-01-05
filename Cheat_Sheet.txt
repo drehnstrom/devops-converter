@@ -1,27 +1,26 @@
 # This installs prerequisites.
 sudo pip3 install -r requirements.txt
 
+# Start the program
+python3 main.py
 
 # git commands
 git add --all
 git commit -a -m "Initial Commit"
 git push origin master
 
-
 # App Engine Commands
 gcloud app create --region=us-central
 gcloud app deploy --version=one --no-promote
 
-
 # GCP Container Builder to build Docker image
-gcloud container builds submit --tag gcr.io/doug-rehnstrom/converter:v1.0 .
+gcloud builds submit --tag gcr.io/doug-rehnstrom/converter:v1.0 .
 
 # Pull the container for the GCP Container Registry
 gcloud docker -- pull gcr.io/doug-rehnstrom/converter:v1.0
 
 # Run Docker image on local machine 
-docker run -d -p 80:80 gcr.io/doug-rehnstrom/converter:v1.0
-
+docker run -d -p 8080:8080 gcr.io/doug-rehnstrom/converter:v1.0
 
 # Create a cluster in drehnstrom-1171 project - uses all the defaults
 gcloud container clusters create converter-cluster --zone "us-central1-a"  --project=doug-rehnstrom
@@ -42,8 +41,4 @@ kubectl get service
 kubectl delete -f gke-config.yaml
 
 # Delete the Cluster
-gcloud container clusters delete converter-cluster --zone "us-central1-a"
-
-
-
-
+gcloud container clusters delete converter-cluster --zone "us-central1-a" --quiet
