@@ -8,7 +8,7 @@ pipeline {
                     echo "Install App Requirements"
                     sh 'python --version'
                     sh 'pip install -r requirements.txt'
-                    sh 'python main.py'
+                    sh 'python main_test.py'
                  }
             }   
         }
