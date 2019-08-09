@@ -1,7 +1,8 @@
 pipeline {
   agent { docker { image 'python:3.7.2' } }
+  withEnv(["HOME=${env.WORKSPACE}"]) {
   stages {
-    withEnv(["HOME=${env.WORKSPACE}"]) {
+    
         stage('build') {
             steps {
             echo "Install App Requirements"
