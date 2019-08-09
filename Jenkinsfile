@@ -13,14 +13,4 @@ pipeline {
         }   
     }
   }
-  agent { none }
-  stages{
-    stage('Build the Docker Container') {
-      steps {
-        echo "Building the Docker Container"
-        sh 'ls -a'
-        sh 'docker --version'
-      }   
-    }
-  }
 }
