@@ -4,7 +4,7 @@ pipeline {
     stage('build') {
       steps {
         echo "Install App Requirements"
-        sh 'sudo pip install requirements.txt'
+        sudo 'pip install requirements.txt'
       }
     }
     stage('test') {
