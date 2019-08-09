@@ -12,6 +12,9 @@ pipeline {
                 }
         }   
     }
+  }
+  agent { none }
+  stages{
     stage('Build the Docker Container') {
       steps {
         echo "Building the Docker Container"
@@ -19,5 +22,5 @@ pipeline {
         sh 'docker --version'
       }   
     }
-    }
+  }
 }
