@@ -9,10 +9,10 @@ pipeline {
         }
       }
     }
-    stage('test') {
+    stage('Run') {
       steps {
-        echo "Run the Unit tests"
-        sh 'python main_test.py'
+        echo "Run the Program"
+        sh 'python main.py'
       }   
     }
   }
