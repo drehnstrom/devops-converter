@@ -4,7 +4,9 @@ pipeline {
     stage('build') {
       steps {
         echo "Install App Requirements"
-        sudo 'pip install requirements.txt'
+        withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'pip install --user -r requirements.txt'
+                }
       }
     }
     stage('test') {
