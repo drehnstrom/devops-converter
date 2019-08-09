@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo "Install App Requirements"
         withEnv(["HOME=${env.WORKSPACE}"]) {
-            sh 'pip install --user -r requirements.txt'
+            sh 'pip install -r requirements.txt'
         }
       }
     }
