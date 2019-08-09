@@ -12,10 +12,7 @@ pipeline {
     stage('test') {
       steps {
         echo "Run the Unit tests"
-         withEnv(["HOME=${env.WORKSPACE}"]) {
-            sh 'pip install -U pytest'
-        }
-        sh 'pytest'
+        sh 'python main_test.py'
       }   
     }
   }
