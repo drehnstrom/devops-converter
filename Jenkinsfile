@@ -4,16 +4,17 @@ pipeline {
     stage('build') {
       steps {
         echo "Install App Requirements"
+        sh 'python --version'
         withEnv(["HOME=${env.WORKSPACE}"]) {
             sh 'pip install -r requirements.txt'
         }
       }
     }
-    stage('Run') {
+    /* stage('Run') {
       steps {
         echo "Run the Program"
         sh 'python main.py'
       }   
-    }
+    } */
   }
 }
