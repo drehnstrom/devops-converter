@@ -1,4 +1,5 @@
 import logging
+import os
 from Converter import Converter
 from flask import Flask, render_template, request
 
@@ -46,5 +47,5 @@ def server_error(e):
     logging.exception('An error occurred during a request.')
     return 'An internal error occurred.', 500
     
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080, debug=True, threaded=True)
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
