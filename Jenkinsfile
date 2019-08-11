@@ -18,6 +18,8 @@ pipeline {
             steps {
                 echo 'Packaging....'
                 sh 'docker build -t gcr.io/doug-rehnstrom/jenkins-converter:v0.2 .'
+                sh 'gcloud auth configure-docker --quiet'
+                sh 'docker push gcr.io/doug-rehnstrom/jenkins-converter:v0.2'
             }
         }
 
