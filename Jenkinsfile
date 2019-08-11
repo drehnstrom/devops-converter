@@ -24,6 +24,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                echo 'Deploying to Cloud Run...'
+                sh 'gcloud beta run deploy jenkins-converter --allow-unauthenticated --image gcr.io/doug-rehnstrom/jenkins-converter:v0.2 --platform managed --region us-central1'
             }
         }
     }
