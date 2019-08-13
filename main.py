@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    model = {"title":"Hey, Jenkins. Welcome to Converter!"}
+    model = {"title":"Welcome to Converter!"}
     return render_template('index.html', model=model)
 
 @app.route("/temp-converter")
