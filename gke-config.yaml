@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: converter
-        image: gcr.io/doug-rehnstrom/converter:v1.0
+        image: drehnstrom/tiktalk:v1.1
         ports:
         - containerPort: 8080
         resources:
