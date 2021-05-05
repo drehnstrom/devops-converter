@@ -1,6 +1,6 @@
 import logging
 import os
-from Converter import Converter
+from converter import Converter
 from flask import Flask, render_template, request
 
 app = Flask(__name__)

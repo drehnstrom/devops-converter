@@ -5,18 +5,15 @@ metadata:
   name: converter-deployment
   labels:
     app: converter
-    tier: frontend
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: converter
-      tier: frontend
   template:
     metadata:
       labels:
         app:  converter
-        tier: frontend
     spec:
       containers:
       - name: converter
@@ -39,7 +36,6 @@ metadata:
   name: converter-deployment-lb
   labels:
     app: converter
-    tier: frontend-lb
 spec:
   type: LoadBalancer
   ports:
@@ -47,7 +43,6 @@ spec:
     targetPort: 8080
   selector:
     app: converter
-    tier: frontend
  
 ---
 
