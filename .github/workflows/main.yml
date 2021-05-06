@@ -42,3 +42,8 @@ jobs:
         run: |
           echo Run pip install...
           pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: |
+          echo Run unit tests...
+          pytest
